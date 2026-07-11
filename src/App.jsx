@@ -1,11 +1,20 @@
 import "./App.css";
+import Header from "./components/Header";
+import CardHeader from "./components/CardHeader";
 
 function App() {
   return (
-    <div>
-      <h1>Flashcard Learning Aid</h1>
-      <p>My first React application 🎉</p>
-    </div>
+    <>
+      <div className="background"></div>
+
+      <div className="container">
+        <Header />
+
+        <main>
+          <CardHeader />
+        </main>
+      </div>
+    </>
   );
 }
 
