@@ -1,4 +1,4 @@
-import "./Header.css";
+import { LuCopy } from "react-icons/lu";
 
 function Header() {
   return (
@@ -7,7 +7,6 @@ function Header() {
       <div className="logo">
 
         <div className="logo-icon">
-        import { LuCopy } from "react-icons/lu";
         <LuCopy />
         </div>
 

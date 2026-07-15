@@ -1,3 +1,5 @@
+import { FaArrowRightArrowLeft } from "react-icons/fa6";
+
 function Flashcard() 
 {
     return (
@@ -16,7 +18,8 @@ function Flashcard()
             <div className="card-body">
                 <h1>TCP/IP</h1>
 
-                <button className="card-body">
+                <button className="flip-link">
+                    <FaArrowRightArrowLeft />
                     Click to Flip
                 </button>
 
