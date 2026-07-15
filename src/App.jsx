@@ -4,6 +4,9 @@ import CardHeader from "./components/CardHeader";
 import Flashcard from "./components/Flashcard";
 import FlipButton from "./components/FlipButton";
 import Hint from "./components/Hint";
+import AnswerButtons from "./components/AnswerButtons";
+import Stats from "./components/Stats";
+import Navigation from "./components/Navigation";
 
 function App() {
   return (
