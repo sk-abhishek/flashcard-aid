@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header.jsx";
 import CardHeader from "./components/CardHeader";
@@ -9,6 +10,7 @@ import Stats from "./components/Stats";
 import Navigation from "./components/Navigation";
 
 function App() {
+  const[flipped, setFlipped] = useState(false);
   return (
     <>
       <div className="background"></div>
