@@ -1,5 +1,5 @@
 import "./App.css";
-import Header from "./components/Header";
+import Header from "./components/Header.jsx";
 import CardHeader from "./components/CardHeader";
 import Flashcard from "./components/Flashcard";
 import FlipButton from "./components/FlipButton";
@@ -21,6 +21,9 @@ function App() {
           <Flashcard />
           <FlipButton />
           <Hint />
+          <AnswerButtons />
+          <Stats />
+          <Navigation />
         </main>
       </div>
     </>
