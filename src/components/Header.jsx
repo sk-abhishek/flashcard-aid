@@ -1,6 +1,8 @@
 import { LuCopy } from "react-icons/lu";
 
-function Header() {
+function Header({ currentCard, totalCards}) {
+  const progress = Math.round(((currentCard + 1) / totalCards) * 100);
+
   return (
     <header className="header">
 
@@ -23,13 +25,19 @@ function Header() {
 
           <span>Progress</span>
 
-          <span>0 / 8 cards</span>
+          <span>
+            {currentCard + 1} / {totalCards} cards
+          </span>
 
         </div>
 
         <div className="progress-bar">
 
-          <div className="progress-fill"></div>
+          <div 
+          
+          className="progress-fill"
+          style={{ width: `${progress}%` }}    
+          ></div>
 
         </div>
 
@@ -41,7 +49,7 @@ function Header() {
           U
         </div>
 
-        <p>0% complete</p>
+        <p>{progress}% complete</p>
 
       </div>
 

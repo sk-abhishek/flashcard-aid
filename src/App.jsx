@@ -21,10 +21,17 @@ function App() {
       <div className="background"></div>
 
       <div className="container">
-        <Header />
+        <Header
+          currentCard={currentCard}
+          totalCards={flashcards.length}
+        />
 
         <main>
-          <CardHeader />
+          <CardHeader
+            currentCard={currentCard}
+            totalCards={flashcards.length}
+            flashcard={flashcards[currentCard]}
+          />
           <Flashcard 
           flipped={flipped}
           flashcard={flashcards[currentCard]}

@@ -1,13 +1,14 @@
-function CardHeader() {
+function CardHeader({ currentCard, totalCards, flashcard}) {
     return (
       <div className="card-header">
-        <h3>Card 1 of 8</h3>
+        <h3>Card {currentCard + 1} of {totalCards}</h3>
   
         <span className="category-pill">
-          Networking
+          {flashcard.category}
         </span>
       </div>
     );
   }
   
   export default CardHeader;
+
