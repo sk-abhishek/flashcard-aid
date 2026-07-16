@@ -10,7 +10,7 @@ import Stats from "./components/Stats";
 import Navigation from "./components/Navigation";
 
 function App() {
-  const[flipped, setFlipped] = useState(false);
+  const [flipped, setFlipped] = useState(false);
   return (
     <>
       <div className="background"></div>
@@ -20,8 +20,11 @@ function App() {
 
         <main>
           <CardHeader />
-          <Flashcard />
-          <FlipButton />
+          <Flashcard flipped={flipped}/>
+          <FlipButton
+          flipped={flipped}
+          setFlipped={setFlipped}
+           />
           <Hint />
           <AnswerButtons />
           <Stats />
