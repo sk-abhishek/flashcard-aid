@@ -49,6 +49,7 @@ function App() {
             setCurrentCard={setCurrentCard}
             totalCards={flashcards.length}
             setFlipped={setFlipped}
+            flashcards={flashcards}
           />
         </main>
       </div>

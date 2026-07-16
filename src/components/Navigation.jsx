@@ -8,7 +8,8 @@ function Navigation({
     currentCard,
     setCurrentCard,
     totalCards,
-    setFlipped
+    setFlipped,
+    flashcards
 })
 {
     return(
@@ -27,7 +28,19 @@ function Navigation({
                 Previous
             </button>
 
-            <button className="shuffle">
+            <button 
+            className="shuffle"
+            onClick={() => {
+                let randomCard;
+                do {
+                    randomCard = Math.floor(Math.random() * flashcards.length);
+                } while (randomCard === currentCard);
+
+                setCurrentCard(randomCard);
+                setFlipped(False);
+            }}
+            
+            >
                 <FaShuffle />
                 {" "}
                 Shuffle
