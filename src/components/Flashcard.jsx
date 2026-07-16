@@ -1,13 +1,13 @@
 import { FaArrowRightArrowLeft } from "react-icons/fa6";
 
-function Flashcard({ flipped }) 
+function Flashcard({ flipped, flashcard }) 
 {
     return (
         <section className="flashcard">
             <div className="card-top">
 
                 <span className="category">
-                    Networking
+                    {flashcard.category}
                 </span>
 
                 <span className="card-type">
@@ -18,8 +18,8 @@ function Flashcard({ flipped })
             <div className="card-body">
                 <h1>
                     {flipped
-                    ? "Transmission Control Protocol / Internet Protocol"
-                    : "TCP/IP"}
+                    ? flashcard.definition
+                    : flashcard.term}
                 </h1>
 
                 <button className="flip-link">
