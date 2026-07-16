@@ -29,7 +29,7 @@ function App() {
           flipped={flipped}
           flashcard={flashcards[currentCard]}
           />
-          
+
           <FlipButton
           flipped={flipped}
           setFlipped={setFlipped}
@@ -37,7 +37,12 @@ function App() {
           <Hint />
           <AnswerButtons />
           <Stats />
-          <Navigation />
+          <Navigation 
+            currentCard={currentCard}
+            setCurrentCard={setCurrentCard}
+            totalCards={flashcards.length}
+            setFlipped={setFlipped}
+          />
         </main>
       </div>
     </>

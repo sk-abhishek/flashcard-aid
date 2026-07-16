@@ -4,12 +4,24 @@ import {
     FaShuffle
 } from "react-icons/fa6"
 
-function Navigation()
+function Navigation({
+    currentCard,
+    setCurrentCard,
+    totalCards,
+    setFlipped
+})
 {
     return(
         <div className="navigation">
 
-            <button>
+            <button
+                onClick={() => {
+                    if (currentCard > 0) {
+                        setCurrentCard(currentCard - 1);
+                        setFlipped(false);
+                    }
+                }}
+            >
                 <FaArrowLeft />
                 {" "}
                 Previous
@@ -21,7 +33,15 @@ function Navigation()
                 Shuffle
             </button>
 
-            <button>
+            <button
+                onClick={() => {
+                    if (currentCard < totalCards - 1) {
+                        setCurrentCard(currentCard + 1);
+                        setFlipped(false);
+                    }
+                }}
+
+            >
                 <FaArrowRight />
                 {" "}
                 Next
