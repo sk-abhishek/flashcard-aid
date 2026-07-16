@@ -11,7 +11,7 @@ function Flashcard({ flipped })
                 </span>
 
                 <span className="card-type">
-                    Term
+                    {flipped ? "Definition" : "Term"}
                 </span>
             </div>
 
@@ -19,11 +19,12 @@ function Flashcard({ flipped })
                 <h1>
                     {flipped
                     ? "Transmission Control Protocol / Internet Protocol"
-                    : TCP/IP}
+                    : "TCP/IP"}
                 </h1>
 
                 <button className="flip-link">
                     <FaArrowRightArrowLeft />
+                    {" "}
                     Click to Flip
                 </button>
 

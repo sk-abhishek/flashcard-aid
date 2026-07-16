@@ -1,9 +1,11 @@
 import { FaUpDown } from "react-icons/fa6";
 
-function FlipButton()
+function FlipButton({ flipped, setFlipped})
 {
     return (
-        <button className="flip-button">
+        <button className="flip-button"
+        onClick={() => setFlipped(!flipped)}
+        >
             <FaUpDown />
             {" "}
             Flip Card

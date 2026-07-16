@@ -194,6 +194,10 @@ header{
 
   font-size:72px;
   color: var(--text);
+
+  text-align: center;
+  line-height: 1.2;
+  max-width: 80%;
 }
 
 .flip-link{
