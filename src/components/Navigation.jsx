@@ -20,6 +20,7 @@ function Navigation({
                     if (currentCard > 0) {
                         setCurrentCard(currentCard - 1);
                         setFlipped(false);
+                        setShowHint(false);
                     }
                 }}
             >
@@ -38,6 +39,7 @@ function Navigation({
 
                 setCurrentCard(randomCard);
                 setFlipped(False);
+                setShowHint(False)
             }}
             
             >
@@ -51,6 +53,7 @@ function Navigation({
                     if (currentCard < totalCards - 1) {
                         setCurrentCard(currentCard + 1);
                         setFlipped(false);
+                        setShowHint(false);
                     }
                 }}
 

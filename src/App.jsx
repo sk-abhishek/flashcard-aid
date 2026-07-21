@@ -19,6 +19,8 @@ function App() {
   const [correctCount, setCorrectCount] = useState(0);
   const [incorrectCount, setIncorrectCount] = useState(0);
   const [streak, setStreak] = useState(0);
+
+  const [showHint, setShowHint] = useState(false);
   return (
     <>
       <div className="background"></div>
@@ -44,7 +46,11 @@ function App() {
           flipped={flipped}
           setFlipped={setFlipped}
            />
-          <Hint />
+          <Hint
+            flashcard={flashcards[currentCard]}
+            showHint={showHint}
+            setShowHint={setShowHint}     
+          />
 
           <AnswerButtons 
             currentCard={currentCard}
