@@ -16,6 +16,9 @@ import Navigation from "./components/Navigation";
 function App() {
   const [flipped, setFlipped] = useState(false);
   const [currentCard, setCurrentCard] = useState(0);
+  const [correctCount, setCorrectCount] = useState(0);
+  const [incorrectCount, setIncorrectCount] = useState(0);
+  const [streak, setStreak] = useState(0);
   return (
     <>
       <div className="background"></div>
@@ -42,8 +45,29 @@ function App() {
           setFlipped={setFlipped}
            />
           <Hint />
-          <AnswerButtons />
-          <Stats />
+
+          <AnswerButtons 
+            currentCard={currentCard}
+            setCurrentCard={setCurrentCard}
+            totalCards={flashcards.length}
+            setFlipped={setFlipped}
+
+            correctCount={correctCount}
+            setCorrectCount={setCorrectCount}
+
+            incorrectCount={incorrectCount}
+            setIncorrectCount={setIncorrectCount}
+
+            streak={streak}
+            setStreak={setStreak}
+          />
+
+          <Stats
+            correctCount={correctCount}
+            incorrectCount={incorrectCount}
+            streak={streak}
+          
+          />
           <Navigation 
             currentCard={currentCard}
             setCurrentCard={setCurrentCard}
