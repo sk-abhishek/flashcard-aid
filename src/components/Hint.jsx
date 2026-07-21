@@ -24,7 +24,10 @@ function Hint({
             )}
             </div>
 
-            <FaChevronDown />
+            <FaChevronDown 
+                className={showHint ? "rotate" : ""}
+            />
+            
         </div>
     );
 }
