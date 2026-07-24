@@ -43,7 +43,7 @@ body{
 .container{
 
   position:relative;
-  width:1200px;
+  width:min(1200px, 100%);
   margin:auto;
   padding:30px;
 }
@@ -363,4 +363,59 @@ header{
   height:80px;
 
   border-radius:22px!important;
+}
+
+@media (max-width: 900px) {
+
+  header {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .progress-wrapper {
+    width: 100%;
+    margin: 0;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .navigation {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
+  }
+
+  .card-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .card-top {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .card-body h1 {
+    font-size: 42px;
+    max-width: 100%;
+  }
+
+  .answer-buttons {
+    flex-direction: column;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .navigation {
+    flex-direction: column;
+    gap: 20px;
+  }
 }

@@ -9,7 +9,8 @@ function Navigation({
     setCurrentCard,
     totalCards,
     setFlipped,
-    flashcards
+    flashcards,
+    setShowHint
 })
 {
     return(
@@ -38,8 +39,8 @@ function Navigation({
                 } while (randomCard === currentCard);
 
                 setCurrentCard(randomCard);
-                setFlipped(False);
-                setShowHint(False)
+                setFlipped(false);
+                setShowHint(false)
             }}
             
             >

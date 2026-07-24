@@ -80,6 +80,7 @@ function App() {
             totalCards={flashcards.length}
             setFlipped={setFlipped}
             flashcards={flashcards}
+            setShowHint={setShowHint}
           />
         </main>
       </div>
