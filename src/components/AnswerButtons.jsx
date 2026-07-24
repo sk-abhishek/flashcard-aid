@@ -20,6 +20,7 @@ function AnswerButtons({
         <div className="answer-buttons">
             <button 
                 className="correct"
+                aria-label="Mark answer as correct"
                 onClick={() => {
 
                     setCorrectCount(correctCount + 1);
@@ -40,6 +41,7 @@ function AnswerButtons({
 
             <button 
                 className="wrong"
+                aria-label="Mark answer as correct"
                 onClick={() => {
 
                     setIncorrectCount(incorrectCount + 1);

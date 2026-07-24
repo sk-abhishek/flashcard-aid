@@ -11,6 +11,9 @@ function Hint({
         <div 
             className="hint"
             onClick={() => setShowHint(!showHint)}
+            role="button"
+            tabIndex={0}
+            aria-label="Show or hide hint"
         >
             <div> 
                 <LuLightbulb />
@@ -27,7 +30,7 @@ function Hint({
             <FaChevronDown 
                 className={showHint ? "rotate" : ""}
             />
-            
+
         </div>
     );
 }

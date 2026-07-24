@@ -4,6 +4,7 @@ function FlipButton({ flipped, setFlipped})
 {
     return (
         <button className="flip-button"
+        aria-label="Flip flashcard"
         onClick={() => setFlipped(!flipped)}
         >
             <FaUpDown />
