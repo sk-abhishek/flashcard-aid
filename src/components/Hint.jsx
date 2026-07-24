@@ -10,10 +10,16 @@ function Hint({
     return  (
         <div 
             className="hint"
-            onClick={() => setShowHint(!showHint)}
             role="button"
             tabIndex={0}
             aria-label="Show or hide hint"
+            onClick={() => setShowHint(!showHint)}
+            onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                    setShowHint(!showHint);
+                }
+            }}
+            
         >
             <div> 
                 <LuLightbulb />
