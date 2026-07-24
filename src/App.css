@@ -419,3 +419,29 @@ header{
     gap: 20px;
   }
 }
+
+button:focus-visible,
+.hint:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 4px;
+}
+
+button,
+.hint {
+  transition: transform 0.2s ease,
+  box-shadow 0.2s ease,
+  filter 0.2s ease;
+}
+
+button:hover,
+.hint:hover {
+  transform: translateY(-2px);
+  transition: all 0.2s ease;
+  box-shadow: 0 8px 20px rgba(108, 99, 255, 0.2);
+}
+
+button:focus-visible,
+.hint:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 4px;
+}
