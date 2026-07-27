@@ -17,8 +17,26 @@ app.get("/flashcards", (req, res) => {
     res.json(flashcards);
 })
 
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`)
+app.delete("/flashcards/:id", (req, res) => {
+
+    const id = Number(req.params.id);
+
+    const index = flashcards.findIndex(
+        flashcard => flashcard.id === id
+    );
+
+    if (index === -1) {
+        return res.status(404).json({
+            message: "Flashcard not found"
+        });
+    }
+
+    flashcards.splice(index, 1);
+
+    res.json({
+        message: "Flashcard deleted successfully"
+    });
+
 });
 
 app.post("/flashcards", (req, res) => {
@@ -32,3 +50,7 @@ app.post("/flashcards", (req, res) => {
         flashcard: newFlashcard
     });
 }) 
+
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`)
+});
