@@ -39,6 +39,27 @@ app.delete("/flashcards/:id", (req, res) => {
 
 });
 
+app.put("/flashcards/:id", (req, res) => {
+    const id = Number(req.params.id);
+
+    const flashcard = flashcards.find(
+        flashcard => flashcard.id === id
+    );
+
+    if (!flashcard) {
+        return res.status(404).json({
+            message: "Flashcard not found"
+        });
+    }
+
+    Object.assign(flashcard, req.body);
+
+    res.json({
+        message: "Flashcard updated successfully",
+        flashcard
+    });
+});
+
 app.post("/flashcards", (req, res) => {
 
     const newFlashcard = req.body;
