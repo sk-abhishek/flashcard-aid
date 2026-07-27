@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 
-import flashcards from "./data/flashcards.js";
+
 
 import Header from "./components/Header.jsx";
 import CardHeader from "./components/CardHeader";
@@ -16,11 +16,30 @@ import Navigation from "./components/Navigation";
 function App() {
   const [flipped, setFlipped] = useState(false);
   const [currentCard, setCurrentCard] = useState(0);
+
   const [correctCount, setCorrectCount] = useState(0);
   const [incorrectCount, setIncorrectCount] = useState(0);
   const [streak, setStreak] = useState(0);
 
+  const [flashcards, setFlashcards] = useState([]);
+
   const [showHint, setShowHint] = useState(false);
+
+  useEffect(() => {
+    fetch("http://localhost:3001/flashcards")
+      .then((response) => response.json())
+      .then((data) => {
+        setFlashcards(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching flashcards:", error);
+      });
+  }, []);
+
+  if (flashcards.length === 0) {
+    return <h2>Loading flashcards...</h2>
+  }
+  
   return (
     <>
       <div className="background"></div>
