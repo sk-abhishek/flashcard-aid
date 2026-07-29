@@ -112,6 +112,8 @@ function App() {
 
             streak={streak}
             setStreak={setStreak}
+
+            setDeckComplete={setDeckComplete}
           />
 
           <Stats

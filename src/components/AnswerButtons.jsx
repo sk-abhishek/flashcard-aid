@@ -13,7 +13,8 @@ function AnswerButtons({
     setIncorrectCount,
 
     streak,
-    setStreak
+    setStreak,
+    setDeckComplete
 })
 {
     return (
@@ -29,6 +30,8 @@ function AnswerButtons({
                     if (currentCard < totalCards -1)
                     {
                         setCurrentCard(currentCard + 1);
+                    } else {
+                        setDeckComplete(true);
                     }
 
                     setFlipped(false);
@@ -50,6 +53,8 @@ function AnswerButtons({
                     if (currentCard < totalCards - 1)
                     {
                         setCurrentCard(currentCard + 1);
+                    } else {
+                        setDeckComplete(false);
                     }
 
                     setFlipped(false);
