@@ -11,6 +11,7 @@ import Hint from "./components/Hint";
 import AnswerButtons from "./components/AnswerButtons";
 import Stats from "./components/Stats";
 import Navigation from "./components/Navigation";
+import CompleteScreen from "./components/CompleteScreen.jsx";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
   const [flashcards, setFlashcards] = useState([]);
 
   const [showHint, setShowHint] = useState(false);
+  const [deckComplete, setDeckComplete] = useState(false);
 
   useEffect(() => {
     fetch("http://localhost:3001/flashcards")
@@ -38,6 +40,31 @@ function App() {
 
   if (flashcards.length === 0) {
     return <h2>Loading flashcards...</h2>
+  }
+
+  if (deckComplete) {
+    return (
+      <>
+        <div className="background"></div>
+
+        <div className="container">
+          <CompleteScreen
+            correctCount={correctCount}
+            incorrectCount={incorrectCount}
+            streak={streak}
+            onRestart={() => {
+              setDeckComplete(false);
+              setCurrentCard(0);
+              setCorrectCount(0);
+              setIncorrectCount(0);
+              setStreak(0);
+              setFlipped(false);
+              setShowHint(false);
+            }}
+            />
+        </div>
+      </>
+    );
   }
   
   return (
