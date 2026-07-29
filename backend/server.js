@@ -62,7 +62,10 @@ app.put("/flashcards/:id", (req, res) => {
 
 app.post("/flashcards", (req, res) => {
 
-    const newFlashcard = req.body;
+    const newFlashcard = {
+        id: Date.now(),
+        ...req.body
+    };
 
     flashcards.push(newFlashcard);
 

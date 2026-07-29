@@ -12,6 +12,7 @@ import AnswerButtons from "./components/AnswerButtons";
 import Stats from "./components/Stats";
 import Navigation from "./components/Navigation";
 import CompleteScreen from "./components/CompleteScreen.jsx";
+import AddFlashcard from "./components/AddFlashcard.jsx";
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
   const [showHint, setShowHint] = useState(false);
   const [deckComplete, setDeckComplete] = useState(false);
 
+
   useEffect(() => {
     fetch("http://localhost:3001/flashcards")
       .then((response) => response.json())
@@ -39,7 +41,11 @@ function App() {
   }, []);
 
   if (flashcards.length === 0) {
-    return <h2>Loading flashcards...</h2>
+    return (
+      <>
+       <AddFlashcard setFlashcards={setFlashcards}/>
+      </>
+    );
   }
 
   if (deckComplete) {
@@ -78,6 +84,11 @@ function App() {
         />
 
         <main>
+          <AddFlashcard 
+            setFlashcards={setFlashcards}
+          />
+
+
           <CardHeader
             currentCard={currentCard}
             totalCards={flashcards.length}
