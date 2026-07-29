@@ -13,6 +13,7 @@ import Stats from "./components/Stats";
 import Navigation from "./components/Navigation";
 import CompleteScreen from "./components/CompleteScreen.jsx";
 import AddFlashcard from "./components/AddFlashcard.jsx";
+import DeleteButton from "./components/DeleteButton.jsx";
 
 
 function App() {
@@ -99,10 +100,17 @@ function App() {
           flashcard={flashcards[currentCard]}
           />
 
+          <DeleteButton
+            flashcard={flashcards[currentCard]}
+            setFlashcards={setFlashcards}
+            setCurrentCard={setCurrentCard}
+          />
+
           <FlipButton
           flipped={flipped}
           setFlipped={setFlipped}
-           />
+          />
+
           <Hint
             flashcard={flashcards[currentCard]}
             showHint={showHint}
