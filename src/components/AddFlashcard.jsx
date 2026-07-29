@@ -7,6 +7,11 @@ function AddFlashcard({ setFlashcards }) {
 
     const handleSubmit = () => {
 
+        if (!question || !answer) {
+            alert("Please fill in both fields!")
+            return;
+        }
+
         const newFlashcard = {
             question: question,
             answer: answer
