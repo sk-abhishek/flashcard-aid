@@ -14,6 +14,8 @@ import Navigation from "./components/Navigation";
 import CompleteScreen from "./components/CompleteScreen.jsx";
 import AddFlashcard from "./components/AddFlashcard.jsx";
 import DeleteButton from "./components/DeleteButton.jsx";
+import EditButton from "./components/EditButton.jsx";
+import { TbFlagSearch } from "react-icons/tb";
 
 
 function App() {
@@ -28,6 +30,10 @@ function App() {
 
   const [showHint, setShowHint] = useState(false);
   const [deckComplete, setDeckComplete] = useState(false);
+
+  const [editing, setEditing] = useState(false);
+  const [editQuestion, setEditQuestion] = useState("");
+  const [editAnswer, setEditAnswer] = useState("");
 
 
   useEffect(() => {
@@ -106,6 +112,15 @@ function App() {
             setCurrentCard={setCurrentCard}
           />
 
+          <EditButton
+            onEdit={() => {
+              setEditing(true);
+              setEditQuestion(flashcards[currentCard].question);
+              setEditAnswer(flashcards[currentCard].answer);
+          }}
+          
+          />
+
           <FlipButton
           flipped={flipped}
           setFlipped={setFlipped}
@@ -116,6 +131,29 @@ function App() {
             showHint={showHint}
             setShowHint={setShowHint}     
           />
+
+          {editing && (
+            <div className="edit-form">
+              <input
+                type="text"
+                value={editQuestion}
+                onChange={(e) => setEditQuestion(e.target.value)}
+                placeholder="Question"
+                />
+
+                <input
+                  type="text"
+                  value={editAnswer}
+                  onChange={(e) => setEditAnswer(e.target.value)}
+                  placeholder="Answer"
+                />
+
+                <button>
+                  Save Changes
+                </button>
+            </div>
+          )}
+          
 
           <AnswerButtons 
             currentCard={currentCard}

@@ -19,7 +19,16 @@ function DeleteButton({ flashcard, setFlashcards, setCurrentCard}) {
     };
 
     return (
-        <button onClick={handleDelete}>
+        <button 
+            style={{
+                background: "red",
+                color: "white",
+                padding: "15px",
+                margin: "20px",
+                borderRadius: "10px"
+            }}
+            onClick={handleDelete}
+        >
             Delete Flashcard
         </button>
     );
