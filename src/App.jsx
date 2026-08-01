@@ -32,8 +32,8 @@ function App() {
   const [deckComplete, setDeckComplete] = useState(false);
 
   const [editing, setEditing] = useState(false);
-  const [editQuestion, setEditQuestion] = useState("");
-  const [editAnswer, setEditAnswer] = useState("");
+  const [editTerm, setEditTerm] = useState("");
+  const [editDefinition, setEditDefinition] = useState("");
 
 
   useEffect(() => {
@@ -79,6 +79,40 @@ function App() {
       </>
     );
   }
+
+  const handleSaveChanges = () => {
+
+    const updatedFlashcards = {
+      term: editTerm,
+      definition: editDefinition,
+    };
+
+    console.log("Sending:", updatedFlashcards);
+
+    fetch(`http://localhost:3001/flashcards/${flashcards[currentCard].id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type" : "application/json",
+      },
+      body: JSON.stringify(updatedFlashcards),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        
+        const updatedFlashcards = [...flashcards];
+
+        updatedFlashcards[currentCard] = data.flashcard;
+
+        setFlashcards(updatedFlashcards);
+
+        setEditing(false);
+
+        console.log("Server returned:", data);
+      })
+      .catch((error) => {
+        console.error("Updated error:", error);
+      });
+  };
   
   return (
     <>
@@ -115,8 +149,8 @@ function App() {
           <EditButton
             onEdit={() => {
               setEditing(true);
-              setEditQuestion(flashcards[currentCard].question);
-              setEditAnswer(flashcards[currentCard].answer);
+              setEditTerm(flashcards[currentCard].term);
+              setEditDefinition(flashcards[currentCard].definition);
           }}
           
           />
@@ -136,19 +170,19 @@ function App() {
             <div className="edit-form">
               <input
                 type="text"
-                value={editQuestion}
-                onChange={(e) => setEditQuestion(e.target.value)}
+                value={editTerm}
+                onChange={(e) => setEditTerm(e.target.value)}
                 placeholder="Question"
                 />
 
                 <input
                   type="text"
-                  value={editAnswer}
-                  onChange={(e) => setEditAnswer(e.target.value)}
+                  value={editDefinition}
+                  onChange={(e) => setEditDefinition(e.target.value)}
                   placeholder="Answer"
                 />
 
-                <button>
+                <button onClick={handleSaveChanges}>
                   Save Changes
                 </button>
             </div>

@@ -2,19 +2,19 @@ import { useState } from "react";
 
 function AddFlashcard({ setFlashcards }) {
 
-    const [question, setQuestion] = useState("");
-    const [answer, setAnswer] = useState("");
+    const [term, setTerm] = useState("");
+    const [definition, setDefinition] = useState("");
 
     const handleSubmit = () => {
 
-        if (!question || !answer) {
+        if (!term || !definition) {
             alert("Please fill in both fields!")
             return;
         }
 
         const newFlashcard = {
-            question: question,
-            answer: answer
+            term: term,
+            definition: definition
         };
 
         fetch("http://localhost:3001/flashcards", {
@@ -36,8 +36,8 @@ function AddFlashcard({ setFlashcards }) {
             ]);
 
             // clear form
-            setQuestion("");
-            setAnswer("");
+            setTerm("");
+            setDefinition("");
 
         })
         .catch(error => {
@@ -53,14 +53,14 @@ function AddFlashcard({ setFlashcards }) {
 
             <input
                 placeholder="Question"
-                value={question}
-                onChange={(e) => setQuestion(e.target.value)}
+                value={term}
+                onChange={(e) => setTerm(e.target.value)}
             />
 
             <input
                 placeholder="Answer"
-                value={answer}
-                onChange={(e) => setAnswer(e.target.value)}
+                value={definition}
+                onChange={(e) => setDefinition(e.target.value)}
             />
 
             <button onClick={handleSubmit}>
