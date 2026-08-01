@@ -14,7 +14,9 @@ function AddFlashcard({ setFlashcards }) {
 
         const newFlashcard = {
             term: term,
-            definition: definition
+            definition: definition,
+            term: term.trim(),
+            definition: definition.trim()
         };
 
         fetch("http://localhost:3001/flashcards", {
