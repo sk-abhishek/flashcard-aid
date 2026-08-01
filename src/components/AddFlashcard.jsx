@@ -7,7 +7,7 @@ function AddFlashcard({ setFlashcards }) {
 
     const handleSubmit = () => {
 
-        if (!term || !definition) {
+        if (!term.trim() || !definition.trim()) {
             alert("Please fill in both fields!")
             return;
         }
