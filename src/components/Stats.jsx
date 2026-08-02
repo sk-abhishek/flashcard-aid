@@ -5,6 +5,19 @@ import {
     FaFire,
 } from "react-icons/fa6";
 
+/**
+ * Displays the user's study statistics.
+ *
+ * Shows the number of correct and incorrect answers,
+ * overall accuracy, and the current answer streak.
+ *
+ * @component
+ * @param {Object} props - Component props.
+ * @param {number} props.correctCount - Total number of correct answers.
+ * @param {number} props.incorrectCount - Total number of incorrect answers.
+ * @param {number} props.streak - Current correct answer streak.
+ * @returns {JSX.Element} A statistics dashboard.
+ */
 function Stats({
     correctCount,
     incorrectCount,

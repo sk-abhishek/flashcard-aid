@@ -1,5 +1,17 @@
 import { FaArrowRightArrowLeft } from "react-icons/fa6";
 
+/**
+ * Displays the current flashcard.
+ *
+ * Shows either the term or definition depending on the
+ * current flip state, along with the flashcard category.
+ *
+ * @component
+ * @param {Object} props - Component props.
+ * @param {boolean} props.flipped - Indicates whether the flashcard is flipped.
+ * @param {Object} props.flashcard - The flashcard to display.
+ * @returns {JSX.Element} The flashcard interface.
+ */
 function Flashcard({ flipped, flashcard }) 
 {
     return (

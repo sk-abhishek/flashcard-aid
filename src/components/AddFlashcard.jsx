@@ -1,10 +1,40 @@
 import { useState } from "react";
 
+/**
+ * Displays a form for creating new flashcards.
+ *
+ * Validates user input, sends a POST request to the backend,
+ * and updates the flashcard list when a new card is created.
+ *
+ * @component
+ * @param {Object} props - Component props.
+ * @param {Function} props.setFlashcards - Updates the flashcards state.
+ * @returns {JSX.Element} The add flashcard form.
+ */
 function AddFlashcard({ setFlashcards }) {
 
+        /**
+     * Stores the user's question input.
+     *
+     * @type {[string, Function]}
+     */
     const [term, setTerm] = useState("");
+
+        /**
+     * Stores the user's answer input.
+     *
+     * @type {[string, Function]}
+     */
     const [definition, setDefinition] = useState("");
 
+        /**
+     * Creates a new flashcard after validating the input.
+     *
+     * Sends the flashcard to the backend API and updates
+     * the React state when the request succeeds.
+     *
+     * @returns {void}
+     */
     const handleSubmit = () => {
 
         if (!term.trim() || !definition.trim()) {

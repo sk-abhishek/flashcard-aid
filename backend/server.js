@@ -3,20 +3,47 @@ const flashcards = require("./data/flashcards");
 
 const cors = require("cors");
 
+/**
+ * Express application for the Flashcard Aid backend.
+ *
+ * Provides REST API endpoints for creating, reading,
+ * updating, and deleting flashcards.
+ *
+ * @module server
+ */
 const app = express();
 app.use(cors());
 app.use(express.json());
 
 const PORT = 3001;
 
+/**
+ * Checks that the backend server is running.
+ *
+ * @route GET /
+ * @returns {string} Server status message.
+ */
 app.get("/", (req, res) => {
     res.send("Flashcard Aid Backend is Running");
 });
 
+/**
+ * Retrieves all flashcards.
+ *
+ * @route GET /flashcards
+ * @returns {Array<Object>} List of flashcards.
+ */
 app.get("/flashcards", (req, res) => {
     res.json(flashcards);
 })
 
+/**
+ * Deletes a flashcard by its ID.
+ *
+ * @route DELETE /flashcards/:id
+ * @param {number} id - The ID of the flashcard to delete.
+ * @returns {Object} Confirmation message.
+ */
 app.delete("/flashcards/:id", (req, res) => {
 
     const id = Number(req.params.id);
@@ -39,6 +66,13 @@ app.delete("/flashcards/:id", (req, res) => {
 
 });
 
+/**
+ * Updates an existing flashcard.
+ *
+ * @route PUT /flashcards/:id
+ * @param {number} id - The ID of the flashcard to update.
+ * @returns {Object} Updated flashcard data.
+ */
 app.put("/flashcards/:id", (req, res) => {
     const id = Number(req.params.id);
 
@@ -60,6 +94,14 @@ app.put("/flashcards/:id", (req, res) => {
     });
 });
 
+/**
+ * Creates a new flashcard.
+ *
+ * Generates a unique ID and stores the new flashcard.
+ *
+ * @route POST /flashcards
+ * @returns {Object} Newly created flashcard.
+ */
 app.post("/flashcards", (req, res) => {
 
     const newFlashcard = {
@@ -75,6 +117,11 @@ app.post("/flashcards", (req, res) => {
     });
 }) 
 
+/**
+ * Starts the Express server.
+ *
+ * @listens PORT
+ */
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`)
 });

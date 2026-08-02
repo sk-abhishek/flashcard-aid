@@ -17,7 +17,18 @@ import DeleteButton from "./components/DeleteButton.jsx";
 import EditButton from "./components/EditButton.jsx";
 import { TbFlagSearch } from "react-icons/tb";
 
-
+/**
+ * Main application component that manages flashcard functionality
+ *
+ * Handles:
+ * - Fetching flashcards from the backend
+ * - Tracking current card progress
+ * - Managing flip, hint, editing, and completion states
+ * - Updating user statistics
+ *
+ * @component
+ * @returns {JSX.Element} The Flashcard Aid application interface.
+ */
 function App() {
   const [flipped, setFlipped] = useState(false);
   const [currentCard, setCurrentCard] = useState(0);
@@ -26,6 +37,11 @@ function App() {
   const [incorrectCount, setIncorrectCount] = useState(0);
   const [streak, setStreak] = useState(0);
 
+  /**
+ * Stores all flashcards retrieved from the backend API.
+ *
+ * @type {Array<Object>}
+ */
   const [flashcards, setFlashcards] = useState([]);
 
   const [showHint, setShowHint] = useState(false);
@@ -35,7 +51,12 @@ function App() {
   const [editTerm, setEditTerm] = useState("");
   const [editDefinition, setEditDefinition] = useState("");
 
-
+/**
+ * Fetches flashcards from the Express backend when the application loads.
+ *
+ * @effect
+ * @returns {void}
+ */
   useEffect(() => {
     fetch("http://localhost:3001/flashcards")
       .then((response) => response.json())
@@ -79,6 +100,14 @@ function App() {
       </>
     );
   }
+  /**
+ * Updates the current flashcard with edited values.
+ *
+ * Sends updated flashcard data to the backend API
+ * and updates the React state after receiving the response.
+ *
+ * @returns {void}
+ */
 
   const handleSaveChanges = () => {
 
