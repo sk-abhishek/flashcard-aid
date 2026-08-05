@@ -64,7 +64,7 @@ function AddFlashcard({ setFlashcards }) {
             // update React state so UI updates immediately
             setFlashcards(prev => [
                 ...prev,
-                data
+                data.flashcard
             ]);
 
             // clear form
